@@ -4,7 +4,6 @@ import { useCookies } from "react-cookie";
 
 function Navbar(props) {
 	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
-	const navigate = useNavigate();
 
 	const deleteToken = () => {
 		removeCookie("token", { path: "/" });
@@ -20,7 +19,7 @@ function Navbar(props) {
 			<h1 className="text-3xl font-extrabold">LEMAILER</h1>
 			<button
 				onClick={signOut}
-				className="bg-white self-center hover:text-blue-500  border-2 p-2 border-black hover:border-blue-500 hover:font-bold rounded-lg  text-black "
+				className="bg-white self-center hover:text-red-500  border-2 p-2 border-black hover:border-red-500 hover:font-bold rounded-lg  text-black "
 			>
 				Logout
 			</button>

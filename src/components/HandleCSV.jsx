@@ -35,32 +35,35 @@ function CSVUpload(props) {
 			/>
 
 			{props.selectedFile != null && (
-				<table style={{ borderCollapse: "collapse" }} className="overflow-x-auto block whitespace-normal">
-					<thead>
-						<tr>
-							{headers.map((header, index) => (
-								<th key={index} style={{ padding: "8px" }} className="uppercase">
-									{header}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody className="overflow-x-scroll">
-						{csvData.map((row, index) => (
-							<tr key={index}>
-								{row.map((cell, cellIndex) => (
-									<td
-										key={cellIndex}
-										className="px-4 py-2 whitespace-break-spaces"
-										style={{ padding: "8px", border: "1px solid #ddd", minWidth: "200px" }}
-									>
-										{cell}
-									</td>
+				<>
+					<h1 className="font-bold text-center text-2xl uppercase underline underline-offset-4">Preview</h1>
+					<table style={{ borderCollapse: "collapse" }} className="overflow-x-auto block whitespace-normal">
+						<thead>
+							<tr>
+								{headers.map((header, index) => (
+									<th key={index} style={{ padding: "8px" }} className="uppercase">
+										{header}
+									</th>
 								))}
 							</tr>
-						))}
-					</tbody>
-				</table>
+						</thead>
+						<tbody className="overflow-x-scroll">
+							{csvData.map((row, index) => (
+								<tr key={index}>
+									{row.map((cell, cellIndex) => (
+										<td
+											key={cellIndex}
+											className="px-4 py-2 whitespace-break-spaces"
+											style={{ padding: "8px", border: "1px solid #ddd", minWidth: "200px" }}
+										>
+											{cell}
+										</td>
+									))}
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</>
 			)}
 		</div>
 	);

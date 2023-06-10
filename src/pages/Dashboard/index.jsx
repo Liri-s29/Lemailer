@@ -16,10 +16,6 @@ function Dashboard(props) {
 		return cookies.token;
 	};
 	useEffect(() => {
-		// console.log(props.credentials);
-		// if (props.credentials == null) {
-		// 	navigate("/");
-		// }
 		if (getToken() == null) {
 			navigate("/");
 		}
@@ -33,7 +29,7 @@ function Dashboard(props) {
 					{selectedFile != null && (
 						<div className="flex flex-col justify-end">
 							<button
-								className="bg-green-500 self-end hover:bg-green-200  border-2 p-2 border-black hover:border-black rounded-lg  text-black "
+								className="bg-green-500 self-end hover:bg-green-400  border-2 p-2 border-black hover:border-black rounded-lg  text-black "
 								onClick={async () => {
 									setRes("Please wait until the emails are sent...");
 									const response = await sendFile(selectedFile, getToken());

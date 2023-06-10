@@ -10,12 +10,9 @@ function PrivacyPolicies() {
 	};
 
 	return (
-		<div className="min-h-screen flex flex-col py-10 px-40 gap-5">
-			<h1 className="text-center text-4xl font-extrabold  uppercase">Public Privacy Policy</h1>
-			<button
-				onClick={handleNavigate}
-				className="w-1/6 text-left text-lg underline underline-offset-4 hover:text-gray-400"
-			>
+		<div className="min-h-screen flex flex-col px-5 md:px-40 gap-5">
+			<h1 className="text-center text-4xl font-extrabold mt-10 uppercase">Public Privacy Policy</h1>
+			<button onClick={handleNavigate} className="text-left text-lg underline underline-offset-4 hover:text-gray-400">
 				{"<--"} Back to Lemailer
 			</button>
 			<p className="text-2xl font-bold uppercase">
