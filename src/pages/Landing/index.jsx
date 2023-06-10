@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { GoogleLogin, hasGrantedAllScopesGoogle, useGoogleLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
@@ -29,9 +29,6 @@ function LandingPage(props) {
 
 	const login = useGoogleLogin({
 		onSuccess: (response) => {
-			const hasAccess = hasGrantedAllScopesGoogle(response, "https://www.googleapis.com/auth/gmail.send");
-			console.log(hasAccess);
-
 			if (response) {
 				// props.setCredentials(response);
 				setToken(response.access_token);

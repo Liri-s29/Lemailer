@@ -5,11 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import App from "./App";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-// import "./tailwind.css";
+import "./tailwind.css";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<GoogleOAuthProvider clientId={process.env.VARIABLE_NAME}>
+		<GoogleOAuthProvider clientId="921651746161-n9e5ijh5rgcrh2fjojlka2f2goq8lhlf.apps.googleusercontent.com">
 			<App />
 		</GoogleOAuthProvider>
 	</React.StrictMode>,
