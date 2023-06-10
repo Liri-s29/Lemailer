@@ -27,13 +27,13 @@ function Dashboard(props) {
 
 	return (
 		getToken() ? (
-			<div class="px-10 flex flex-col  min-h-screen gap-10">
+			<div className="px-10 flex flex-col  min-h-screen gap-10">
 				<Navbar setCredentials={props.setCredentials} />
-				<div class="flex flex-col gap-10 ">
+				<div className="flex flex-col gap-10 ">
 					{selectedFile != null && (
-						<div class="flex flex-col justify-end">
+						<div className="flex flex-col justify-end">
 							<button
-								class="bg-green-500 self-end hover:bg-green-200  border-2 p-2 border-black hover:border-black rounded-lg  text-black "
+								className="bg-green-500 self-end hover:bg-green-200  border-2 p-2 border-black hover:border-black rounded-lg  text-black "
 								onClick={async () => {
 									setRes("Please wait until the emails are sent...");
 									const response = await sendFile(selectedFile, getToken());

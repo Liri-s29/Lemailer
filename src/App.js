@@ -4,6 +4,8 @@ import Dashboard from "./pages/Dashboard";
 // import Campaign from "./pages/Campaign";
 import { useState } from "react";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicies from "./pages/PrivacyPolicies";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 function App() {
 	const [credentials, setCredentials] = useState(null);
@@ -13,7 +15,9 @@ function App() {
 			<Routes>
 				<Route path="/" element={<LandingPage credentials={credentials} setCredentials={setCredentials} />} />
 				<Route path="/dashboard" element={<Dashboard credentials={credentials} setCredentials={setCredentials} />} />
-				<Route path="*" component={<NotFound />} />
+				<Route path="/privacy-policy" element={<PrivacyPolicies />} />
+				<Route path="/terms-of-service" element={<TermsAndConditions />} />
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Router>
 	);
