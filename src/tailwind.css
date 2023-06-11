@@ -475,6 +475,9 @@ video {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .block {
   display: block;
 }
@@ -492,9 +495,6 @@ video {
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.w-1\/6 {
-  width: 16.666667%;
 }
 .w-3\/6 {
   width: 50%;
@@ -576,9 +576,9 @@ video {
   padding-left: 1rem;
   padding-right: 1rem;
 }
-.px-40 {
-  padding-left: 10rem;
-  padding-right: 10rem;
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
 }
 .py-10 {
   padding-top: 2.5rem;
@@ -710,9 +710,14 @@ code {
   border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
-.hover\:bg-green-200:hover {
+.hover\:border-red-500:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
+}
+
+.hover\:bg-green-400:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 
 .hover\:font-bold:hover {
@@ -734,6 +739,11 @@ code {
   color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
+.hover\:text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .hover\:file\:bg-violet-100::file-selector-button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(237 233 254 / var(--tw-bg-opacity));
@@ -743,5 +753,10 @@ code {
 
   .md\:w-1\/6 {
     width: 16.666667%;
+  }
+
+  .md\:px-40 {
+    padding-left: 10rem;
+    padding-right: 10rem;
   }
 }
