@@ -3,17 +3,18 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Footer from "../../components/Footer";
+import getUserEmail from "../../services/fetchUserEmail";
 
 function LandingPage(props) {
-	const [cookies, setCookie] = useCookies(["token"]);
+	const [cookies, setCookie] = useCookies(["userData"]);
 	const navigate = useNavigate();
 
-	const getToken = () => {
-		return cookies.token;
+	const getUserData = () => {
+		return cookies.userData;
 	};
 
 	useEffect(() => {
-		if (getToken()) {
+		if (getUserData()) {
 			navigate("/dashboard");
 		}
 		// if (props.credentials) {
@@ -21,18 +22,19 @@ function LandingPage(props) {
 		// }
 	}, [props.credentials, navigate, cookies]);
 
-	const setToken = (token) => {
+	const setUserData = async (token) => {
 		const expirationDate = new Date();
 		expirationDate.setTime(expirationDate.getTime() + 3550 * 1000); // Set the expiry to 3550 seconds from now
-
-		setCookie("token", token, { path: "/", expires: expirationDate });
+		const userEmail = await getUserEmail(token);
+		const userData = { token, userEmail };
+		setCookie("userData", userData, { path: "/", expires: expirationDate });
 	};
 
 	const login = useGoogleLogin({
 		onSuccess: (response) => {
 			if (response) {
 				// props.setCredentials(response);
-				setToken(response.access_token);
+				setUserData(response.access_token);
 			}
 		},
 		// flow: "auth-code",

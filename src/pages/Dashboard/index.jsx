@@ -2,29 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import CSVUpload from "../../components/HandleCSV";
-import sendFile from "../../services/sendmail";
+import { sendFile } from "../../services/EmailHandler";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 function Dashboard(props) {
-	const [cookies, setCookie, removeCookie] = useCookies(["token"]);
+	const [cookies, setCookie, removeCookie] = useCookies(["userData"]);
 	const [selectedFile, setSelectedFile] = useState(null);
 	const [selectedAttachment, setSelectedAttachment] = useState(false);
 	const [res, setRes] = useState("");
-	const navigate = useNavigate();
 
-	const getToken = () => {
-		return cookies.token;
+	const getUserData = () => {
+		return cookies.userData;
 	};
-	useEffect(() => {
-		if (getToken() == null) {
-			navigate("/");
-		}
-	}, [cookies]);
 
-	return getToken() ? (
-		<div className="px-10 flex flex-col  min-h-screen gap-10">
-			<Navbar setCredentials={props.setCredentials} />
+	return (
+		<div className="flex flex-col  min-h-screen gap-10">
 			<div className="flex flex-col gap-10 ">
 				{selectedFile != null && (
 					<div className="flex flex-col justify-end">
@@ -32,7 +25,7 @@ function Dashboard(props) {
 							className="bg-green-500 self-end hover:bg-green-400  border-2 p-2 border-black hover:border-black rounded-lg  text-black "
 							onClick={async () => {
 								setRes("Please wait until the emails are sent...");
-								const response = await sendFile(selectedFile, getToken(), selectedAttachment);
+								const response = await sendFile(selectedFile, getUserData(), selectedAttachment);
 								// const response = await new Promise((resolve, reject) => {
 								// 	setTimeout(() => {
 								// 		resolve("Emails sent successfully");
@@ -56,8 +49,6 @@ function Dashboard(props) {
 				/>
 			</div>
 		</div>
-	) : (
-		<></>
 	);
 }
 
